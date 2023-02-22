@@ -2,8 +2,8 @@ import time
 import board
 import adafruit_dht
 
-# Set up the DHT22 sensor on GPIO 4
-dhtDevice = adafruit_dht.DHT22(board.D4)
+# Set up the DHT22 sensor on BCM 4 (physical pin 18)
+dhtDevice = adafruit_dht.DHT22(board.D18)
 
 while True:
     try:
@@ -27,3 +27,4 @@ while True:
         raise error
 
     time.sleep(2.0)
+
