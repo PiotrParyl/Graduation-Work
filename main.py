@@ -57,7 +57,7 @@ def regulacja_wilgotnosci():
 
           
             # Wykonanie polecenia INSERT, aby dodać dane do tabeli
-            sql = "INSERT INTO czujniki (temp, wilg, data) VALUES (%s, %s, %s)"
+            sql = "INSERT INTO czujnik (temp, wilg, data) VALUES (%s, %s, %s)"
             val = (temp, wilg, data)
             mycursor.execute(sql, val)
 
