@@ -44,6 +44,7 @@ def seterowanie_wiatrakiem (max,min):
         if wilg <= min:
             print("OK")
             GPIO.output(23,GPIO.LOW)
-
+        if input().lower() == 'q':
+            break
 
 regulacja_wilgotnosci()
