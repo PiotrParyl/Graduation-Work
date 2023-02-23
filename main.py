@@ -13,9 +13,14 @@ import math
 # Konfiguracja
 DHT_SENSOR = Adafruit_DHT.DHT22
 DHT_PIN = 4
+email_sendet = False
+
 
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(23, GPIO.OUT)
+
+
+
 
 def send_email():
 
@@ -52,6 +57,8 @@ def regulacja_wilgotnosci():
 )
     # utworzenie kursora
     mycursor = mydb.cursor()
+
+
 
 
 
@@ -97,7 +104,7 @@ def regulacja_wilgotnosci():
                 mydb.commit()
 
             except:
-                email_sendet = False
+                
                 data = datetime.now()
                 sql = "INSERT INTO czujnik (temp, wilg, data) VALUES (%s, %s, %s)"            
                 val = (None, None, data)
