@@ -97,6 +97,7 @@ def regulacja_wilgotnosci():
                 mydb.commit()
 
             except:
+                email_sendet = False
                 data = datetime.now()
                 sql = "INSERT INTO czujnik (temp, wilg, data) VALUES (%s, %s, %s)"            
                 val = (None, None, data)
@@ -104,7 +105,10 @@ def regulacja_wilgotnosci():
                 mycursor.execute(sql, val)
                 mydb.commit()
                 print("Error")
-                send_email()
+
+                if email_sendet == False:
+                    send_email()
+                    email_sendet = True
 
 
 regulacja_wilgotnosci()
