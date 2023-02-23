@@ -13,6 +13,8 @@ import math
 # Konfiguracja
 DHT_SENSOR = Adafruit_DHT.DHT22
 DHT_PIN = 4
+
+global email_sendet
 email_sendet = False
 
 
@@ -99,8 +101,9 @@ def regulacja_wilgotnosci():
                 sql = "INSERT INTO czujnik (temp, wilg, data) VALUES (%s, %s, %s)"
                 val = (temp, wilg, data)
                 mycursor.execute(sql, val)
+                global email_sendet
+                email_sendet = False
                 
-                email_sendet == False
                 # Zatwierdzenie zmian i zamknięcie połączenia z bazą danych
                 mydb.commit()
 
