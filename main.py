@@ -18,7 +18,9 @@ def regulacja_wilgotnosci():
         min = int(min)
         max = int(max)
 
-        seterowanie_wiatrakiem(max,min)
+        while True:
+            
+            seterowanie_wiatrakiem(max,min)
 
 
 def seterowanie_wiatrakiem (max,min):
