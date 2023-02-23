@@ -92,9 +92,13 @@ def regulacja_wilgotnosci():
                 mydb.commit()
 
             except:
-                sql = "INSERT INTO czujnik (temp, wilg, data) VALUES (NaN, NaN, data)"
-                
-                mycursor.execute(sql)
+                sql = "INSERT INTO czujnik (temp, wilg, data) VALUES (%s, %s, %s)"
+                if math.isnan(temp) or math.isnan(wilg):
+                    val = (None, None, data)
+                else:
+                    val = (temp, wilg, data)
+                mycursor.execute(sql, val)
+
                 print("Error")
                 send_email()
 
