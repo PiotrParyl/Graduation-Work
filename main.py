@@ -62,6 +62,9 @@ def regulacja_wilgotnosci():
 
             time.sleep(5)
 
+            temp = None
+            wilg = None
+
             try:
                 humidity, temperature = Adafruit_DHT.read_retry(DHT_SENSOR, DHT_PIN)
 
