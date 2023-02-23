@@ -7,7 +7,7 @@ import smtplib
 from email.message import EmailMessage
 import ssl
 import smtplib
-
+import math
 # Konfiguracja
 DHT_SENSOR = Adafruit_DHT.DHT22
 DHT_PIN = 4
