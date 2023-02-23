@@ -95,6 +95,7 @@ def regulacja_wilgotnosci():
                 sql = "INSERT INTO czujnik (temp, wilg, data) VALUES (NaN, NaN, data)"
                 
                 mycursor.execute(sql)
+                print("Error")
                 send_email()
 
 
