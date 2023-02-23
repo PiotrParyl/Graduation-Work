@@ -13,7 +13,16 @@ while True:
 
     humidity, temperature = Adafruit_DHT.read_retry(DHT_SENSOR, DHT_PIN)
 
+    temp = round(temperature,2)
+    wilg = round(humidity,2)
+
     if humidity is not None and temperature is not None:
         print(f"Temperaturka{temperature:.2f} Wilgotność{humidity:.2f}")
     else:
         print("Failed to retrieve data from humidity sensor")
+
+    if wilg > 60:
+        print("ZA WILGOTNO")
+
+    else:
+        print("OK")
