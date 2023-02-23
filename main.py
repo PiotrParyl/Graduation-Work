@@ -8,6 +8,8 @@ from email.message import EmailMessage
 import ssl
 import smtplib
 import math
+
+
 # Konfiguracja
 DHT_SENSOR = Adafruit_DHT.DHT22
 DHT_PIN = 4
@@ -39,6 +41,7 @@ def send_email():
         smtp.login(email_sender,email_password)
         smtp.sendmail(email_sender,email_receiver,msg.as_string())
 
+
 def regulacja_wilgotnosci():
 
     mydb = mysql.connector.connect(
@@ -62,8 +65,7 @@ def regulacja_wilgotnosci():
 
             time.sleep(5)
 
-            temp = None
-            wilg = None
+            
 
             try:
                 humidity, temperature = Adafruit_DHT.read_retry(DHT_SENSOR, DHT_PIN)
@@ -95,13 +97,11 @@ def regulacja_wilgotnosci():
                 mydb.commit()
 
             except:
-                sql = "INSERT INTO czujnik (temp, wilg, data) VALUES (%s, %s, %s)"
-                if math.isnan(temp) or math.isnan(wilg):
-                    val = (None, None, data)
-                else:
-                    val = (temp, wilg, data)
+                sql = "INSERT INTO czujnik (temp, wilg, data) VALUES (%s, %s, %s)"            
+                val = (None, None, data)
+                val = (temp, wilg, data)
                 mycursor.execute(sql, val)
-
+                mydb.commit()
                 print("Error")
                 send_email()
 
