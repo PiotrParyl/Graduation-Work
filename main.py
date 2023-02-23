@@ -24,7 +24,7 @@ def regulacja_wilgotnosci():
 
 def seterowanie_wiatrakiem (max,min):
     while True:
-        time.sleep(2)
+        time.sleep(60)
 
         humidity, temperature = Adafruit_DHT.read_retry(DHT_SENSOR, DHT_PIN)
 
@@ -32,15 +32,15 @@ def seterowanie_wiatrakiem (max,min):
         wilg = round(humidity,2)
 
         if humidity is not None and temperature is not None:
-            print(f"Temperaturka{temp} Wilgotność{wilg}")
+            print(f"Temperaturka {temp}   Wilgotność {wilg}")
         else:
             print("Failed to retrieve data from humidity sensor")
 
-        if wilg > max:
+        if wilg >= max:
             print("ZA WILGOTNO")
             GPIO.output(23,GPIO.HIGH)
 
-        if wilg <= min:
+        if wilg < max:
             print("OK")
             GPIO.output(23,GPIO.LOW)
 
