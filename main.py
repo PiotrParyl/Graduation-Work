@@ -18,9 +18,8 @@ def regulacja_wilgotnosci():
         min = int(min)
         max = int(max)
 
-        while True:
-            
-            seterowanie_wiatrakiem(max,min)
+        seterowanie_wiatrakiem(max,min)
+
 
 
 def seterowanie_wiatrakiem (max,min):
@@ -45,9 +44,6 @@ def seterowanie_wiatrakiem (max,min):
             print("OK")
             GPIO.output(23,GPIO.LOW)
 
-        if input("Naciśnij Q, aby przerwać: ").lower() == 'q':
-            break
-        else:
-            continue
+        
 
 regulacja_wilgotnosci()
