@@ -12,19 +12,18 @@ GPIO.setup(23, GPIO.OUT)
 def regulacja_wilgotnosci():
 
     while True:
-        min = input("Podaj minimalną wilgotność: ")
+        
         max = input("Podaj maksymalną wilgotność ")
 
-        min = int(min)
         max = int(max)
 
-        seterowanie_wiatrakiem(max,min)
+        seterowanie_wiatrakiem(max)
 
 
 
-def seterowanie_wiatrakiem (max,min):
+def seterowanie_wiatrakiem (max):
     while True:
-        time.sleep(60)
+        time.sleep(10)
 
         humidity, temperature = Adafruit_DHT.read_retry(DHT_SENSOR, DHT_PIN)
 
