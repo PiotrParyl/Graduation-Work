@@ -15,6 +15,9 @@ def regulacja_wilgotnosci():
         min = input("Podaj minimalną wilgotność: ")
         max = input("Podaj maksymalną wilgotność ")
 
+        min = int(min)
+        max = int(max)
+
         seterowanie_wiatrakiem(max,min)
 
 
