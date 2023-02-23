@@ -17,13 +17,7 @@ def regulacja_wilgotnosci():
 
         max = int(max)
 
-        seterowanie_wiatrakiem(max)
-
-
-
-def seterowanie_wiatrakiem (max):
-    while True:
-        time.sleep(10)
+        time.sleep(5)
 
         humidity, temperature = Adafruit_DHT.read_retry(DHT_SENSOR, DHT_PIN)
 
