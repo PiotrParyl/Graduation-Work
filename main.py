@@ -100,7 +100,7 @@ def regulacja_wilgotnosci():
                 data = datetime.now()
                 sql = "INSERT INTO czujnik (temp, wilg, data) VALUES (%s, %s, %s)"            
                 val = (None, None, data)
-                val = (temp, wilg, data)
+                
                 mycursor.execute(sql, val)
                 mydb.commit()
                 print("Error")
