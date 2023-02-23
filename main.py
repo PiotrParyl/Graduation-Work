@@ -21,7 +21,7 @@ while True:
     wilg = round(humidity,2)
 
     if humidity is not None and temperature is not None:
-        print(f"Temperaturka{temperature:.2f} Wilgotność{humidity:.2f}")
+        print(f"Temperaturka{temp} Wilgotność{wilg}")
     else:
         print("Failed to retrieve data from humidity sensor")
 
