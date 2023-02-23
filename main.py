@@ -2,16 +2,14 @@ import Adafruit_DHT
 import time
 import RPi.GPIO as GPIO
 
-
-#Konfiguracja
-
+# Konfiguracja
 DHT_SENSOR = Adafruit_DHT.DHT22
 DHT_PIN = 4
 
-
+GPIO.setmode(GPIO.BCM)
+GPIO.setup(23, GPIO.OUT)
 
 while True:
-
     time.sleep(2)
 
     humidity, temperature = Adafruit_DHT.read_retry(DHT_SENSOR, DHT_PIN)
@@ -27,7 +25,6 @@ while True:
     if wilg > 60:
         print("ZA WILGOTNO")
         GPIO.output(23,GPIO.HIGH)
-
     else:
         print("OK")
         GPIO.output(23,GPIO.LOW)
