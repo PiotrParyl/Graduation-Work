@@ -99,7 +99,7 @@ def regulacja_wilgotnosci():
                 sql = "INSERT INTO czujnik (temp, wilg, data) VALUES (%s, %s, %s)"
                 val = (temp, wilg, data)
                 mycursor.execute(sql, val)
-                global email_sendet
+                
                 email_sendet == False
                 # Zatwierdzenie zmian i zamknięcie połączenia z bazą danych
                 mydb.commit()
