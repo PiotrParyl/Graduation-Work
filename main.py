@@ -17,26 +17,28 @@ def regulacja_wilgotnosci():
 
         max = int(max)
 
-        time.sleep(5)
+        while True:
+            
+            time.sleep(5)
 
-        humidity, temperature = Adafruit_DHT.read_retry(DHT_SENSOR, DHT_PIN)
+            humidity, temperature = Adafruit_DHT.read_retry(DHT_SENSOR, DHT_PIN)
 
-        temp = round(temperature,2)
-        wilg = round(humidity,2)
+            temp = round(temperature,2)
+            wilg = round(humidity,2)
 
-        if humidity is not None and temperature is not None:
-            print(f"Temperaturka {temp}   Wilgotność {wilg}")
-        else:
-            print("Failed to retrieve data from humidity sensor")
+            if humidity is not None and temperature is not None:
+                print(f"Temperaturka {temp}   Wilgotność {wilg}")
+            else:
+                print("Failed to retrieve data from humidity sensor")
 
-        if wilg >= max:
-            print("ZA WILGOTNO")
-            GPIO.output(23,GPIO.HIGH)
+            if wilg >= max:
+                print("ZA WILGOTNO")
+                GPIO.output(23,GPIO.HIGH)
 
-        if wilg < max:
-            print("OK")
-            GPIO.output(23,GPIO.LOW)
+            if wilg < max:
+                print("OK")
+                GPIO.output(23,GPIO.LOW)
 
-        
+            
 
 regulacja_wilgotnosci()
