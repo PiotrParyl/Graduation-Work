@@ -97,6 +97,7 @@ def regulacja_wilgotnosci():
                 mydb.commit()
 
             except:
+                data = datetime.now()
                 sql = "INSERT INTO czujnik (temp, wilg, data) VALUES (%s, %s, %s)"            
                 val = (None, None, data)
                 val = (temp, wilg, data)
