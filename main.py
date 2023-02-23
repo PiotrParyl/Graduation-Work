@@ -1,10 +1,14 @@
 import Adafruit_DHT
 import time
+import RPi.GPIO as GPIO
 
+
+#Konfiguracja
+GPIO.setmode(GPIO.BCM)
+GPIO.setup(18, GPIO.OUT)
 DHT_SENSOR = Adafruit_DHT.DHT22
 DHT_PIN = 4
 
-#siema siema
 
 
 while True:
@@ -23,6 +27,8 @@ while True:
 
     if wilg > 60:
         print("ZA WILGOTNO")
+        GPIO.output(18,GPIO.HIGH)
 
     else:
         print("OK")
+        GPIO.output(18,GPIO.LOW)
