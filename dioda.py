@@ -1,13 +1,22 @@
-#deklaracje
-import RPi.GPIO as GPIO
-from time import sleep
+import mysql.connector
 
-#Konfiguracja
-GPIO.setmode(GPIO.BCM)
-GPIO.setup(18, GPIO.OUT)
+mydb = mysql.connector.connect(
+    host="192.168.0.11",
+    user="maczo1928",
+    password="Pomidor13",
+    database="test123"
+)
+    # utworzenie kursora
 
-while True:
-    GPIO.output(18,GPIO.HIGH)
-    sleep(1)
-    GPIO.output(18,GPIO.LOW)
-    sleep(1)
+
+mycursor = mydb.cursor()
+
+# wykonujemy zapytanie SQL do pobrania danych z tabeli
+mycursor.execute("SELECT * FROM czujnik")
+
+# pobieramy wyniki zapytania
+myresult = mycursor.fetchall()
+
+# wyświetlamy wyniki
+for row in myresult:
+  print(row)
