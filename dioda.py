@@ -20,3 +20,6 @@ myresult = mycursor.fetchall()
 # wyświetlamy wyniki
 for row in myresult:
   print(row)
+
+
+#upip.install('mysql-connector-python')
