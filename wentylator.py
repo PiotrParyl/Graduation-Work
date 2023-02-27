@@ -48,7 +48,7 @@ def send_email():
 
 
 
-def send_data():
+def wentylator():
 
     mydb = mysql.connector.connect(
     host="localhost",
@@ -96,24 +96,14 @@ def send_data():
                     GPIO.output(23,GPIO.LOW)
 
             
-                # Wykonanie polecenia INSERT, aby dodać dane do tabeli
-                sql = "INSERT INTO czujnik (temp, wilg, data) VALUES (%s, %s, %s)"
-                val = (temp, wilg, data)
-                mycursor.execute(sql, val)
                 
                 email_sendet = False
                 
-                # Zatwierdzenie zmian i zamknięcie połączenia z bazą danych
-                mydb.commit()
+             
 
             except:
                 
-                data = datetime.now()
-                sql = "INSERT INTO czujnik (temp, wilg, data) VALUES (%s, %s, %s)"            
-                val = (None, None, data)
-                
-                mycursor.execute(sql, val)
-                mydb.commit()
+             
                 print("Error")
 
                 
@@ -122,7 +112,4 @@ def send_data():
                     email_sendet = True
 
 
-wyslsend_dataij_dane()
-
-
-
+wentylator()
